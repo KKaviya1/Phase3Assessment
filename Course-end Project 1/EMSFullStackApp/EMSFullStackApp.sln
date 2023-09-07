@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMSFullStackApp", "EMSFullStackApp\EMSFullStackApp.csproj", "{3153CFC0-055D-4B52-A0F3-66333818D8CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3153CFC0-055D-4B52-A0F3-66333818D8CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3153CFC0-055D-4B52-A0F3-66333818D8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3153CFC0-055D-4B52-A0F3-66333818D8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3153CFC0-055D-4B52-A0F3-66333818D8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71B6D521-F507-4446-8A68-132AF1C2F456}
+	EndGlobalSection
+EndGlobal

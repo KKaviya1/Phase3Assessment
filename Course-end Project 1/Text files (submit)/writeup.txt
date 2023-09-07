@@ -1,0 +1,18 @@
+EXPLANATION:
+------------
+
+Create Asp.net Core web API project
+Create Model class such as EmpProject and DeptMaster and provide necessary variable for the table
+Install Microsoft.EntityFrameworkcore.tools and Microsoft.EntityFrameworkcore.SqlServer from Nuget package manager
+Create controllers for each model class EmpProjectsController and DeptMastersControllers
+In appsetting, provide your server name and appropriate database name.
+Open Package Manager console, and create table and migration file using add-migration, script-migration and update database.
+Entity Framework Migrations are used to manage the database schema. 
+Migrations help in creating and updating the database based on the defined models and their relationships.
+Populate those table with some datas
+Debug and Execute the project
+To ensure the API's functionality, testing is performed using tools like Swagger. 
+Simulate the process of adding, updating, deleting, and verify that the API behaves as expected.
+
+
+GitHub Link:

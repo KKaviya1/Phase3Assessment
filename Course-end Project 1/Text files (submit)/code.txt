@@ -1,0 +1,97 @@
+DeptMaster:
+-----------
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace EMSFullStackApp.Models
+{
+        [Table("DeptMaster")]
+        public class DeptMaster
+        {
+            [Key]
+            public int DeptCode { get; set; }
+
+            public string DeptName { get; set; }
+
+            public virtual ICollection<EmpProfile> EmpProfiles { get; set; }
+        }
+}
+
+
+
+EmpProfile:
+-----------
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace EMSFullStackApp.Models
+{
+        [Table("EmpProfile")]
+        public class EmpProfile
+        {
+            [Key]
+            public int EmpCode { get; set; }
+            public DateTime DateOfBirth { get; set; }
+            public string EmpName { get; set; }
+            public string Email { get; set; }
+            public int DeptCode { get; set; }
+            public virtual DeptMaster DeptMaster { get; set; }
+        }
+}
+
+
+SimplonaDbContext:
+------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using EMSFullStackApp.Models;
+
+namespace EMSFullStackApp.Data
+{
+    public class SimplonaDbContext : DbContext
+    {
+        public SimplonaDbContext (DbContextOptions<SimplonaDbContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<EMSFullStackApp.Models.DeptMaster> DeptMaster { get; set; } = default!;
+
+        public DbSet<EMSFullStackApp.Models.EmpProfile>? EmpProfile { get; set; }
+    }
+}
+
+
+Program:
+--------
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using EMSFullStackApp.Data;
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<SimplonaDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SimplonaDbContext") ?? throw new InvalidOperationException("Connection string 'SimplonaDbContext' not found.")));
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
